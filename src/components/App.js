@@ -1,7 +1,5 @@
-import logo from '../logo.svg';
-import { useEffect, useState } from 'react';
-import './App.css';
-import NavBar from './NavBar';
+import { Route, Routes } from 'react-router-dom';
+import MoviesList from './MoviesList';
 
 function App() {
   // const [popular, setPopular] = useState([]);
@@ -20,7 +18,10 @@ function App() {
 
   return (
     <>
-    <NavBar/>
+      <Routes>
+        <Route exact="true" path='/' element={<MoviesList />} />
+      </Routes>
+
     </>
   );
 }

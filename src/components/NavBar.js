@@ -25,7 +25,7 @@ export default function NavBar() {
                         </a>
                     </NavLink>
 
-                    <NavLink
+                    {/* <NavLink
                         to="/newmoviedetails"
                         exact="true"
                         className={({ isActive }) => (isActive ? 'active' : 'inactive')}
@@ -38,7 +38,7 @@ export default function NavBar() {
                             </span>
                             <span className="text-sm">Add-movie details</span>
                         </a>
-                    </NavLink>
+                    </NavLink> */}
                     <a className="flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-blue-600 hover:font-semibold dark:hover:text-white" href="#">
                         <svg className="h-5 w-5 group-hover:fill-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g>
