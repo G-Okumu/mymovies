@@ -1,27 +1,26 @@
 import logo from '../logo.svg';
 import { useEffect, useState } from 'react';
 import './App.css';
+import NavBar from './NavBar';
 
 function App() {
-  const [popular, setPopular] = useState([]);
+  // const [popular, setPopular] = useState([]);
 
-  console.log(popular);
+  // console.log(popular);
 
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}upcoming?${process.env.REACT_APP_API_STRING}=${process.env.REACT_APP_API_KEY}`)
-      .then(r => r.json())
-      .then(data => {
-        setPopular(data);
-      });
-  }, [])
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_API_URL}upcoming?${process.env.REACT_APP_API_STRING}=${process.env.REACT_APP_API_KEY}`)
+  //     .then(r => r.json())
+  //     .then(data => {
+  //       setPopular(data);
+  //     });
+  // }, [])
 
 
   return (
     <>
-      <h1 className="text-3xl text-blue-700 underline">
-       Testing Tailwind Installation
-      </h1>
+    <NavBar/>
     </>
   );
 }
