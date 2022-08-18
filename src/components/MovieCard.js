@@ -19,7 +19,7 @@ export default function MovieCard({ movie }) {
                     <span className="text-gray-300 bg-black p-2 text-sm">{movie.release_date}</span>
 
                 </div>
-                <Link to={`moviedetail/${movie.id}`}>
+                <Link to={`moviedetail/${movie.id}`}  singeleMovie={movie}>
                     <span>Get More info!!</span>
                 </Link>
             </div>
