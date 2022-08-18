@@ -1,26 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import MovieCard from "./MovieCard";
+import NavBar from "./NavBar";
 import ReactPlayer from 'react-player/lazy'
-import "./App.css"
-import { NavLink } from 'react-router-dom';
-import NavBar from './NavBar';
-import MovieCard from './MovieCard';
+import { NavLink } from "react-router-dom";
 
-export default function MoviesList() {
-    const [popular, setPopular] = useState([]);
 
-    // console.log(popular);
+export default function Upcoming() {
+    const [upcoming, setUpcoming] = useState([]);
 
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}popular?${process.env.REACT_APP_API_STRING}=${process.env.REACT_APP_API_KEY}`)
+        fetch(`${process.env.REACT_APP_API_URL}upcoming?${process.env.REACT_APP_API_STRING}=${process.env.REACT_APP_API_KEY}`)
             .then(r => r.json())
             .then(data => {
-                // console.log(data);
-                setPopular([...data.results]);
+                setUpcoming([...data.results]);
             });
     }, [])
-
     return (
+
         <div className="font-montserrat text-sm bg-white dark:bg-zinc-900">
             <div className="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700">
                 {/* Left Sidebar */}
@@ -75,13 +72,14 @@ export default function MoviesList() {
                             >
                                 <span class="font-semibold text-base dark:text-white">Trending Movies</span>
 
-                            </NavLink>                            
-                            
+                            </NavLink>
+
+
                             <NavLink to="/upcoming"
                                 exact="true"
                                 className={({ isActive }) => (isActive ? 'active' : 'inactive')}
                             >
-                                <span class="font-semibold text-base dark:text-white">Upcoming</span>
+                                <span class="font-semibold text-base dark:text-white">Upcoming Movies</span>
 
                             </NavLink>
 
@@ -96,17 +94,12 @@ export default function MoviesList() {
                         </div>
 
                         <div class="mt-4 grid grid-cols-2  sm:grid-cols-3 gap-x-5 gap-y-5">
-                            {popular.map((movie) => (
+                            {upcoming.map((movie) => (
                                 <MovieCard key={movie.id} movie={movie} />
                             ))}
                         </div>
                     </section>
                 </main>
-
-                {/* Right side bar */}
-                {/* <aside className=" w-1/5 py-10 px-10  min-w-min  border-l border-gray-300 dark:border-zinc-700 hidden lg:block ">
-                    <Rightside />
-                </aside> */}
 
             </div>
 
