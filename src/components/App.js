@@ -19,6 +19,7 @@ function App() {
               setPopular([...data.results]);
           });
   }, [])
+  
 
   return (
     <>
