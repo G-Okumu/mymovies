@@ -1,20 +1,22 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player/lazy'
 import NavBar from './NavBar';
 
-export default function MoviesList(){
-      const [popular, setPopular] = useState([]);
+export default function MoviesList() {
+    const [popular, setPopular] = useState([]);
 
-  console.log(popular);
+    // console.log(popular);
 
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}upcoming?${process.env.REACT_APP_API_STRING}=${process.env.REACT_APP_API_KEY}`)
-      .then(r => r.json())
-      .then(data => {
-        setPopular(data);
-      });
-  }, [])
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}popular?${process.env.REACT_APP_API_STRING}=${process.env.REACT_APP_API_KEY}`)
+            .then(r => r.json())
+            .then(data => {
+                // console.log(data);
+                setPopular([...data.results]);
+            });
+    }, [])
+
     return (
         <div className="font-montserrat text-sm bg-white dark:bg-zinc-900">
             <div className="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700">
@@ -106,13 +108,13 @@ export default function MoviesList(){
                         <div class="mt-4 grid grid-cols-2  sm:grid-cols-4 gap-x-5 gap-y-5">
                             {popular.map((movie) => (
                                 <div key={movie.id} className="relative hover:-skew-y-6 rounded-xl overflow-hidden">
-                                    <img src={movie.poster_url} className="object-cover h-full w-full -z-10" alt={movie.title} />
+                                    <img src={`${process.env.REACT_APP_IMAGE_PATH}/${movie.backdrop_path}`} className="object-cover h-full w-full -z-10" alt={movie.title} />
                                     <div className="absolute top-0 h-full w-full bg-gradient-to-t from-blue-700 p-3 flex flex-col justify-between">
                                         <h2 className="p-2.5 bg-gray-800/80 rounded-lg text-white hover:bg-blue-600/80">{movie.title}</h2>
 
                                         <div className="self-center flex flex-col items-center space-y-2">
-                                            <span className="capitalize text-white font-medium drop-shadow-md">Directed By:</span>
-                                            <span className="text-gray-300 text-xs">{movie.director}</span>
+                                            <span className="capitalize text-white font-medium drop-shadow-md">Popularity:</span>
+                                            <span className="text-gray-300 text-xs">{movie.popularity}</span>
 
                                         </div>
                                     </div>
