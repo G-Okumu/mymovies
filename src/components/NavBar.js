@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Theme from "./Theme";
 
 export default function NavBar() {
     return (
@@ -78,15 +79,14 @@ export default function NavBar() {
                         </svg>
                         <span>Logout</span>
                     </a>
-                    <a className="flex items-center space-x-2 py-1 mt-4" href="#">
+                    {/* <a className="flex items-center space-x-2 py-1 mt-4" href="#">
                         <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                             <input type="checkbox" name="toggle" id="toggle" className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer" />
                             <label for="toggle" className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                         </div>
                         <label for="toggle" className="">Dark Theme</label>
-                    </a>
-
-
+                    </a> */}
+                    <Theme/>
                 </div>
             </div>
         </>
