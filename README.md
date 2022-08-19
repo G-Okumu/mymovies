@@ -38,5 +38,6 @@ This is an open project, fill free to complete the pending issues
 $ npm run build
 $ npm install netlify-cli -g
 $ netlify deploy
+$ netlify deploy --prod
 
 ```
