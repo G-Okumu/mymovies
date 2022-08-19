@@ -20,7 +20,7 @@ $ npm start
 # Completed Issues
 - List of popular/upcoming movies.
 - Showing movie details
-- Live link []()
+- Live link [https://g-mymovies.netlify.app/](https://g-mymovies.netlify.app/)
 
 
 # Pending Issues
@@ -32,3 +32,11 @@ $ npm start
 This is an open project, fill free to complete the pending issues
 - Reach to me through [gokumu12@gmail.com](gokumu12@gmail.com) for more queris.
 - Or use the license.
+
+# Deploy to Netlify steps through CLI
+```
+$ npm run build
+$ npm install netlify-cli -g
+$ netlify deploy
+
+```
