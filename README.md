@@ -4,6 +4,13 @@
 ## Disclaimer
 This is for practice purposes.
 
+# Languages/ Libraries Used
+- Git
+- React js
+- Tailwind css
+- React-player
+
+
 # Project installation
 
 ```
@@ -41,3 +48,6 @@ $ netlify deploy
 $ netlify deploy --prod
 
 ```
+
+## License
+Check License.txt file
